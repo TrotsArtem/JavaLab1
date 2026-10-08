@@ -1,17 +1,19 @@
 import java.util.Arrays;
-import java.util.Random;
+import java.util.Scanner;
 
 public class Task3 {
     public static void main(String[] args) {
-        int n = 15; // n >= 15
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Введіть розмір матриці n (n >= 15): ");
+        int n = scanner.nextInt();
         double[][] X = new double[n][n];
         double[] Y = new double[n];
-        Random rand = new Random();
 
-        // Заповнюємо матрицю випадковими дійсними числами від -10.0 до 10.0
+        // Введення початкових даних матриці
+        System.out.println("Введіть " + (n * n) + " елементів матриці:");
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
-                X[i][j] = Math.round((rand.nextDouble() * 20 - 10) * 10.0) / 10.0;
+                X[i][j] = scanner.nextDouble();
             }
         }
 
