@@ -25,16 +25,16 @@ public class Main {
 
             switch (choice) {
                 case 1:
-                    executeTask1(scanner);
+                    Task1(scanner);
                     break;
                 case 2:
-                    executeTask2(scanner);
+                    Task2(scanner);
                     break;
                 case 3:
-                    executeTask3(scanner);
+                    Task3(scanner);
                     break;
                 case 4:
-                    executeTask4(scanner);
+                    Task4(scanner);
                     break;
                 case 0:
                     System.out.println("Вихід з програми.");
@@ -47,7 +47,7 @@ public class Main {
         scanner.close();
     }
 
-    public static void executeTask1(Scanner scanner) {
+    public static void Task1(Scanner scanner) {
         System.out.println("\nЗАВДАННЯ 1: Обчислення виразу");
 
         System.out.println("\nВаріант 1 (Вхідні: double, Результат: double):");
@@ -109,7 +109,7 @@ public class Main {
         return (int) calculateExpressionReal(x, y);
     }
 
-    public static void executeTask2(Scanner scanner) {
+    public static void Task2(Scanner scanner) {
         System.out.println("\nЗАВДАННЯ 2: Вилучення чисел, що повторюються");
         System.out.print("Введіть розмір масиву n (n <= 300): ");
         int n = scanner.nextInt();
@@ -163,8 +163,7 @@ public class Main {
         System.out.println();
     }
 
-    // ================= ЗАВДАННЯ 3 =================
-    public static void executeTask3(Scanner scanner) {
+    public static void Task3(Scanner scanner) {
         System.out.println("\nЗАВДАННЯ 3: Побудова вектора Y за матрицею X");
         System.out.print("Введіть розмір матриці n (n <= 15): ");
         int n = scanner.nextInt();
@@ -209,7 +208,7 @@ public class Main {
         }
     }
 
-    public static void executeTask4(Scanner scanner) {
+    public static void Task4(Scanner scanner) {
         scanner.nextLine(); // очищення буфера
         System.out.println("\nЗАВДАННЯ 4: Вилучення слів (фіксований масив)");
         System.out.print("Введіть текст: ");
