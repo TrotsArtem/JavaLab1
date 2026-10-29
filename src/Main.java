@@ -48,7 +48,7 @@ public class Main {
     }
 
     public static void Task1(Scanner scanner) {
-        System.out.println("\nЗАВДАННЯ 1: Обчислення виразу");
+        System.out.println("\nЗАВДАННЯ 1");
 
         System.out.println("\nВаріант 1 (Вхідні: double, Результат: double):");
         System.out.print("Введіть x (double): ");
@@ -56,7 +56,7 @@ public class Main {
         System.out.print("Введіть y (double): ");
         double y1 = scanner.nextDouble();
         try {
-            double res1 = calculateExpressionReal(x1, y1);
+            double res1 = calcDbl(x1, y1);
             System.out.printf("Результат: %.4f\n", res1);
         } catch (ArithmeticException e) {
             System.out.println("Помилка: " + e.getMessage());
@@ -68,7 +68,7 @@ public class Main {
         System.out.print("Введіть y (int): ");
         int y2 = scanner.nextInt();
         try {
-            double res2 = calculateExpressionIntToReal(x2, y2);
+            double res2 = calcIntToDbl(x2, y2);
             System.out.printf("Результат: %.4f\n", res2);
         } catch (ArithmeticException e) {
             System.out.println("Помилка: " + e.getMessage());
@@ -80,14 +80,14 @@ public class Main {
         System.out.print("Введіть y (double): ");
         double y3 = scanner.nextDouble();
         try {
-            int res3 = calculateExpressionRealToInt(x3, y3);
+            int res3 = calcDblToInt(x3, y3);
             System.out.println("Результат (int): " + res3);
         } catch (ArithmeticException e) {
             System.out.println("Помилка: " + e.getMessage());
         }
     }
 
-    public static double calculateExpressionReal(double x, double y) {
+    public static double calcDbl(double x, double y) {
         double denominator = x * x + y * y;
         if (denominator == 0) {
             throw new ArithmeticException("Ділення на нуль у знаменнику (x^2 + y^2 = 0).");
@@ -96,7 +96,7 @@ public class Main {
         return x * y + (numerator / denominator) * (x - y);
     }
 
-    public static double calculateExpressionIntToReal(int x, int y) {
+    public static double calcIntToDbl(int x, int y) {
         double denominator = (double) (x * x + y * y);
         if (denominator == 0) {
             throw new ArithmeticException("Ділення на нуль у знаменнику (x^2 + y^2 = 0).");
@@ -105,12 +105,12 @@ public class Main {
         return (double)(x * y) + (numerator / denominator) * (double)(x - y);
     }
 
-    public static int calculateExpressionRealToInt(double x, double y) {
-        return (int) calculateExpressionReal(x, y);
+    public static int calcDblToInt(double x, double y) {
+        return (int) calcDbl(x, y);
     }
 
     public static void Task2(Scanner scanner) {
-        System.out.println("\nЗАВДАННЯ 2: Вилучення чисел, що повторюються");
+        System.out.println("\nЗАВДАННЯ 2");
         System.out.print("Введіть розмір масиву n (n <= 300): ");
         int n = scanner.nextInt();
         if (n <= 0 || n > 300) {
@@ -140,22 +140,22 @@ public class Main {
             }
         }
 
-        int[] compressedA = new int[newSize];
+        int[] comprA = new int[newSize];
         int idx = 0;
         for (int i = 0; i < n; i++) {
             if (counts[i] == 1) {
-                compressedA[idx++] = a[i];
+                comprA[idx++] = a[i];
             }
         }
 
         System.out.println("\nУщільнений масив (по 5 елементів у рядку):");
-        if (compressedA.length == 0) {
+        if (comprA.length == 0) {
             System.out.println("Усі елементи масиву повторювалися, масив порожній.");
             return;
         }
 
-        for (int i = 0; i < compressedA.length; i++) {
-            System.out.printf("%-6d", compressedA[i]);
+        for (int i = 0; i < comprA.length; i++) {
+            System.out.printf("%-6d", comprA[i]);
             if ((i + 1) % 5 == 0) {
                 System.out.println();
             }
@@ -164,7 +164,7 @@ public class Main {
     }
 
     public static void Task3(Scanner scanner) {
-        System.out.println("\nЗАВДАННЯ 3: Побудова вектора Y за матрицею X");
+        System.out.println("\nЗАВДАННЯ 3");
         System.out.print("Введіть розмір матриці n (n <= 15): ");
         int n = scanner.nextInt();
         if (n <= 0 || n > 15) {
@@ -209,7 +209,7 @@ public class Main {
     }
 
     public static void Task4(Scanner scanner) {
-        scanner.nextLine(); // очищення буфера
+        scanner.nextLine();
         System.out.println("\nЗАВДАННЯ 4: Вилучення слів (фіксований масив)");
         System.out.print("Введіть текст: ");
         String text = scanner.nextLine();
