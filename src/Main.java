@@ -266,9 +266,8 @@ public class Main {
             }
         }
 
-        String cleanedText = cleanExtraSpaces(remainingText.toString());
         System.out.println("\nТекст, що залишився після вилучення:");
-        System.out.println(cleanedText);
+        System.out.println(remainingText);
     }
 
     public static boolean hasDoubleLetters(String word) {
@@ -281,21 +280,4 @@ public class Main {
         return false;
     }
 
-    public static String cleanExtraSpaces(String str) {
-        StringBuilder sb = new StringBuilder();
-        boolean spaceAdded = false;
-        for (int i = 0; i < str.length(); i++) {
-            char c = str.charAt(i);
-            if (Character.isWhitespace(c)) {
-                if (!spaceAdded && sb.length() > 0) {
-                    sb.append(' ');
-                    spaceAdded = true;
-                }
-            } else {
-                sb.append(c);
-                spaceAdded = false;
-            }
-        }
-        return sb.toString().trim();
-    }
 }
