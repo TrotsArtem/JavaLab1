@@ -48,61 +48,47 @@ public class Main {
     }
 
     public static void Task1(Scanner scanner) {
-        System.out.println("\nЗАВДАННЯ 1");
-
-        System.out.println("\nВаріант 1 (Вхідні: double, Результат: double):");
+        System.out.println("\nВхідні: double, Результат: double:");
         System.out.print("Введіть x (double): ");
         double x1 = scanner.nextDouble();
         System.out.print("Введіть y (double): ");
         double y1 = scanner.nextDouble();
-        try {
-            double res1 = calcDbl(x1, y1);
-            System.out.printf("Результат: %.4f\n", res1);
-        } catch (ArithmeticException e) {
-            System.out.println("Помилка: " + e.getMessage());
-        }
+        double res1 = calcDbl(x1, y1);
+        System.out.printf("Результат: %.4f\n", res1);
 
-        System.out.println("\nВаріант 2 (Вхідні: int, Результат: double):");
+        System.out.println("Вхідні: int, Результат: double:");
         System.out.print("Введіть x (int): ");
         int x2 = scanner.nextInt();
         System.out.print("Введіть y (int): ");
         int y2 = scanner.nextInt();
-        try {
-            double res2 = calcIntToDbl(x2, y2);
-            System.out.printf("Результат: %.4f\n", res2);
-        } catch (ArithmeticException e) {
-            System.out.println("Помилка: " + e.getMessage());
-        }
+        double res2 = calcIntToDbl(x2, y2);
+        System.out.printf("Результат: %.4f\n", res2);
 
-        System.out.println("\nВаріант 3 (Вхідні: double, Результат: int):");
+        System.out.println("\nВхідні: double, Результат: int:");
         System.out.print("Введіть x (double): ");
         double x3 = scanner.nextDouble();
         System.out.print("Введіть y (double): ");
         double y3 = scanner.nextDouble();
-        try {
-            int res3 = calcDblToInt(x3, y3);
-            System.out.println("Результат (int): " + res3);
-        } catch (ArithmeticException e) {
-            System.out.println("Помилка: " + e.getMessage());
-        }
+        int res3 = calcDblToInt(x3, y3);
+           System.out.println("Результат (int): " + res3);
     }
 
     public static double calcDbl(double x, double y) {
-        double denominator = x * x + y * y;
-        if (denominator == 0) {
-            throw new ArithmeticException("Ділення на нуль у знаменнику (x^2 + y^2 = 0).");
+        double denom = x * x + y * y;
+        if (denom == 0) {
+            throw new ArithmeticException("Ділення на нуль (x^2 + y^2 = 0).");
         }
-        double numerator = Math.pow(x + y, 3);
-        return x * y + (numerator / denominator) * (x - y);
+        double num = Math.pow(x + y, 3);
+        return x * y + (num / denom) * (x - y);
     }
 
     public static double calcIntToDbl(int x, int y) {
-        double denominator = (double) (x * x + y * y);
-        if (denominator == 0) {
-            throw new ArithmeticException("Ділення на нуль у знаменнику (x^2 + y^2 = 0).");
+        double denom = (double) (x * x + y * y);
+        if (denom == 0) {
+            throw new ArithmeticException("Ділення на нуль (x^2 + y^2 = 0).");
         }
-        double numerator = Math.pow((double)(x + y), 3);
-        return (double)(x * y) + (numerator / denominator) * (double)(x - y);
+        double num = Math.pow((double)(x + y), 3);
+        return (double)(x * y) + (num / denom) * (double)(x - y);
     }
 
     public static int calcDblToInt(double x, double y) {
@@ -110,8 +96,7 @@ public class Main {
     }
 
     public static void Task2(Scanner scanner) {
-        System.out.println("\nЗАВДАННЯ 2");
-        System.out.print("Введіть розмір масиву n (n <= 300): ");
+        System.out.print("Введіть розмір масиву n: ");
         int n = scanner.nextInt();
         if (n <= 0 || n > 300) {
             System.out.println("Некоректний розмір.");
@@ -148,7 +133,7 @@ public class Main {
             }
         }
 
-        System.out.println("\nУщільнений масив (по 5 елементів у рядку):");
+        System.out.println("\nУщільнений масив:");
         if (comprA.length == 0) {
             System.out.println("Усі елементи масиву повторювалися, масив порожній.");
             return;
@@ -164,8 +149,7 @@ public class Main {
     }
 
     public static void Task3(Scanner scanner) {
-        System.out.println("\nЗАВДАННЯ 3");
-        System.out.print("Введіть розмір матриці n (n <= 15): ");
+        System.out.print("Введіть розмір матриці n: ");
         int n = scanner.nextInt();
         if (n <= 0 || n > 15) {
             System.out.println("Некоректний розмір");
@@ -173,7 +157,7 @@ public class Main {
         }
 
         double[][] x = new double[n][n];
-        System.out.println("Введіть елементи матриці X (по рядках):");
+        System.out.println("Введіть елементи матриці X по рядках:");
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 x[i][j] = scanner.nextDouble();
@@ -210,7 +194,6 @@ public class Main {
 
     public static void Task4(Scanner scanner) {
         scanner.nextLine();
-        System.out.println("\nЗАВДАННЯ 4: Вилучення слів (фіксований масив)");
         System.out.print("Введіть текст: ");
         String text = scanner.nextLine();
 
@@ -253,7 +236,7 @@ public class Main {
             }
         }
 
-        System.out.println("\nВилучені слова (з подвоєнням літер):");
+        System.out.println("\nВилучені слова з подвоєнням:");
         if (removedCount == 0) {
             System.out.println("Слів з подвоєнням не знайдено");
         } else {
@@ -262,7 +245,7 @@ public class Main {
             }
             System.out.println();
             if (removedCount == MAX_WORDS) {
-                System.out.println("Ліміт масиву — 15 слів");
+                System.out.println("Ліміт — 15 слів");
             }
         }
 
