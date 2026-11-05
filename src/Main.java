@@ -7,7 +7,7 @@ public class Main {
         int choice = 0;
 
         do {
-            System.out.println("\nМЕНЮ ПРОГРАМИ");
+            System.out.println("\nПРОГРАМИ");
             System.out.println("1. Завдання");
             System.out.println("2. Завдання");
             System.out.println("3. Завдання");
@@ -16,7 +16,7 @@ public class Main {
             System.out.print("Оберіть номер: ");
 
             if (!scanner.hasNextInt()) {
-                System.out.println("Введіть ціле число від 0 до 4.");
+                System.out.println("Введіть число від 0 до 4.");
                 scanner.next();
                 continue;
             }
